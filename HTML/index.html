@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Initial Message prompting the user to enter a city -->
+        <div id="enterCityMessage" class="enter-city-message">
+            <h2>Enter City</h2>
+            <input type="text" id="city" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+
+        <!-- Weather Card that will appear after a city is entered -->
+        <div class="weather-card hidden" id="weatherCard">
+            <h2 id="cityName">City</h2>
+            <div class="weather-details">
+                <img id="weatherIcon" src="/static/weather.png" alt="Weather Icon" class="weather-icon">
+                <div class="temperature" id="temperature">10°C</div>
+                <div class="description" id="description">Clear</div>
+            </div>
+            <div class="extra-info">
+                <p id="humidity">Humidity: --%</p>
+                <p id="windSpeed">Wind Speed: -- m/s</p>
+            </div>
+        </div>
+
+        <!-- Error message area -->
+        <div id="weatherResult"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
